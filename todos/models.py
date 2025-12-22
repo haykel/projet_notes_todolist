@@ -1,9 +1,18 @@
 from django.db import models
+from notes.models import Note
+
 
 class Todo(models.Model):
     """
     Task entity.
     """
+    note = models.ForeignKey(
+        Note,
+        related_name="todos",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
 
     class Status(models.TextChoices):
         TODO = "todo", "To do"
