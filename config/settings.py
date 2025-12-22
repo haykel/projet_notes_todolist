@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# drf-spectacular is used to generate OpenAPI 3 schema
+# and provide Swagger / API documentation
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
 
     "todos",
     "notes", 
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,16 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# drf-spectacular settings
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Todo & Notes API",
+    "DESCRIPTION": (
+        "REST API for managing todos and notes.\n\n"
+        "This API is built with Django REST Framework "
+        "and follows TDD and clean architecture principles."
+    ),
+    "VERSION": "1.0.0",
+}
+
