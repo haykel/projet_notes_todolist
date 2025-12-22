@@ -7,9 +7,12 @@ from drf_spectacular.views import (
 )
 
 from todos.views import TodoViewSet
+from notes.views import NoteViewSet
 
 router = DefaultRouter()
 router.register(r"todos", TodoViewSet, basename="todo")
+router.register(r"notes", NoteViewSet, basename="note")
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
