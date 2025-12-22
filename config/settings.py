@@ -41,12 +41,20 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    "rest_framework"
-
-    "todos",
-    "notes", 
+    # Third-party
+    "rest_framework",
     "drf_spectacular",
+
+    # Local apps
+    "todos",
+    "notes",
 ]
+
+REST_FRAMEWORK = {
+    # IMPORTANT: this MUST be drf-spectacular AutoSchema
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -135,11 +143,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "Todo & Notes API",
-    "DESCRIPTION": (
-        "REST API for managing todos and notes.\n\n"
-        "This API is built with Django REST Framework "
-        "and follows TDD and clean architecture principles."
-    ),
+    "DESCRIPTION": "API for managing todos and notes",
     "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
-

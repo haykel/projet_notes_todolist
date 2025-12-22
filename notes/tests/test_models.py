@@ -1,4 +1,4 @@
-import pytest
+import pytest 
 from notes.models import Note
 
 @pytest.mark.django_db
