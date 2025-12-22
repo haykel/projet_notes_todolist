@@ -1,29 +1,24 @@
 from django.db import models
-from notes.models import Note
 
 
 class Todo(models.Model):
-    """
-    Task entity.
-    """
-    note = models.ForeignKey(
-        Note,
-        related_name="todos",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL
+    STATUS_CHOICES = (
+        ("todo", "Todo"),
+        ("done", "Done"),
     )
-
-    class Status(models.TextChoices):
-        TODO = "todo", "To do"
-        IN_PROGRESS = "in_progress", "In progress"
-        DONE = "done", "Done"
 
     title = models.CharField(max_length=255)
     status = models.CharField(
-        max_length=20,
-        choices=Status.choices,
-        default=Status.TODO
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default="todo",
+    )
+    note = models.ForeignKey(
+        "notes.Note",
+        on_delete=models.CASCADE,  # 🔥 SUPPRESSION EN CASCADE
+        related_name="todos",
+        null=True,
+        blank=True,
     )
 
     created_at = models.DateTimeField(auto_now_add=True)

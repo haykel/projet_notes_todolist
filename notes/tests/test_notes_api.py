@@ -103,3 +103,14 @@ class TestNoteAPI:
 
         assert response.status_code == 204
         assert Note.objects.count() == 0
+
+    def test_delete_note_deletes_related_todos(self):
+        note = Note.objects.create(title="Parent note")
+        Todo.objects.create(title="Todo 1", note=note)
+        Todo.objects.create(title="Todo 2", note=note)
+
+        response = self.client.delete(f"/api/notes/{note.id}/")
+
+        assert response.status_code == 204
+        assert Todo.objects.count() == 0
+
