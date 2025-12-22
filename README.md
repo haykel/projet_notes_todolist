@@ -19,21 +19,23 @@ Le projet est entièrement exposé via une API REST, sécurisée par **JWT**, et
 ---
 
 ## 🧱 Architecture du projet
+
+```text
 projet_notes_todolist/
-├── config/ # Configuration Django
-│ ├── settings.py
-│ ├── urls.py
-│ └── wsgi.py
-├── todos/ # App Todos
-│ ├── models.py
-│ ├── views.py
-│ ├── serializers.py
-│ └── tests/
-├── notes/ # App Notes
-│ ├── models.py
-│ ├── views.py
-│ ├── serializers.py
-│ └── tests/
+├── config/              # Configuration Django
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── todos/               # App Todos
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── tests/
+├── notes/               # App Notes
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── tests/
 ├── manage.py
 ├── requirements.txt
 └── README.md
