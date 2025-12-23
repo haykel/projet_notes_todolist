@@ -56,19 +56,6 @@ INSTALLED_APPS = [
 # ------------------------------------------------------------------------------
 
 REST_FRAMEWORK = {
-<<<<<<< HEAD
-    # Authentication
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-
-    # Permissions (secure by default)
-    "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
-    ),
-
-    # OpenAPI schema
-=======
     # JWT authentication
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -78,7 +65,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ),
     # Swagger / OpenAPI
->>>>>>> feat/auth-jwt
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
